@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "XQ_lan",
+    "texture": "74A/zsvP1MTKN4nfn5CxZj",
+    "rect": [
+      4,
+      2,
+      1018,
+      1015
+    ],
+    "offset": [
+      1,
+      2.5
+    ],
+    "originalSize": [
+      1024,
+      1024
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

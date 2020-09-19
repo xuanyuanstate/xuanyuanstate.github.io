@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "denglubeijing",
+    "texture": "5fKqGDQ65Ok4cDqEacGjh0",
+    "rect": [
+      0,
+      0,
+      640,
+      1300
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      640,
+      1300
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
