@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "denglu_4_12",
+    "texture": "ae6z4TcwpNgIwi1RAiBaEw",
+    "rect": [
+      0,
+      1,
+      113,
+      100
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      113,
+      101
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "XQ_hong2",
+    "texture": "a14QF7OAJD85YetC5lRzJ9",
+    "rect": [
+      2,
+      2,
+      959,
+      1018
+    ],
+    "offset": [
+      -30.5,
+      1
+    ],
+    "originalSize": [
+      1024,
+      1024
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
