@@ -1,5 +1,1 @@
-{
-  "__type__": "cc.Asset",
-  "_name": "client",
-  "_native": ".cer"
-}
+{"__type__":"cc.Asset","_name":"client","_native":".cer"}
