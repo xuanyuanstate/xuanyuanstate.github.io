@@ -48,9 +48,9 @@
     </div>
   </div>
 
-<script src="src/settings.a63ad.js" charset="utf-8"></script>
+<script src="src/settings.71981.js" charset="utf-8"></script>
 <script src="vconsole.min.bac6b.js"></script>
-<script src="main.b85eb.js" charset="utf-8"></script>
+<script src="main.a1ff3.js" charset="utf-8"></script>
 
 <script type="text/javascript">
 (function () {
@@ -110,14 +110,14 @@
   };
  
   window.fbUserInfo = function() {
-    console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
+      window.FBUserInfoFunc(response);
     });
   }
 
 </script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 </html>
