@@ -132,20 +132,20 @@
   }
   window.ggAsyncInit = function() {
     console.log("handleClientLoad");
-    // gapi.load('client:auth2', initClient);
-    try{
-    gapi.load('auth2', function() {
-            auth2 = gapi.auth2.init({
-                client_id: '320616085699-e5okcrld64m0m68uuug1oqq1ci6ae7ru.apps.googleusercontent.com',
-                cookiepolicy: 'single_host_origin',
-                scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email'
-            });
-          });
-        }catch(e)
-        {
-          console.log(e);
-          throw e;
-        }
+    gapi.load('client:auth2', initClient);
+    // try{
+    // gapi.load('auth2', function() {
+    //         auth2 = gapi.auth2.init({
+    //             client_id: '320616085699-e5okcrld64m0m68uuug1oqq1ci6ae7ru.apps.googleusercontent.com',
+    //             cookiepolicy: 'single_host_origin',
+    //             scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email'
+    //         });
+    //       });
+    //     }catch(e)
+    //     {
+    //       console.log(e);
+    //       throw e;
+    //     }
   }
 
   function initClient() {
