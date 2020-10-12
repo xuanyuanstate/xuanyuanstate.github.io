@@ -48,9 +48,9 @@
     </div>
   </div>
 
-<script src="src/settings.5d695.js" charset="utf-8"></script>
+<script src="src/settings.22ec0.js" charset="utf-8"></script>
 <script src="vconsole.min.bac6b.js"></script>
-<script src="main.64dda.js" charset="utf-8"></script>
+<script src="main.a628e.js" charset="utf-8"></script>
 
 <script type="text/javascript">
 (function () {
@@ -132,7 +132,20 @@
   }
   window.ggAsyncInit = function() {
     console.log("handleClientLoad");
-    gapi.load('client:auth2', initClient);
+    // gapi.load('client:auth2', initClient);
+    try{
+    gapi.load('auth2', function() {
+            auth2 = gapi.auth2.init({
+                client_id: '320616085699-e5okcrld64m0m68uuug1oqq1ci6ae7ru.apps.googleusercontent.com',
+                cookiepolicy: 'single_host_origin',
+                scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email'
+            });
+          });
+        }catch(e)
+        {
+          console.log(e);
+          throw e;
+        }
   }
 
   function initClient() {
@@ -234,11 +247,12 @@
 
 <div id="auth-status" style="display: inline; padding-left: 25px"></div><hr>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script async defer src="https://apis.google.com/js/api.js"
         onload="this.onload=function(){handleClientLoad()};"
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
-</script>
-<script async defer src="https://apis.google.com/js/platform.js" ></script>
+</script> -->
+<script async defer crossorigin="anonymous" src="https://apis.google.com/js/api.js" ></script>
+<!-- <script async defer crossorigin="anonymous" src="https://apis.google.com/js/platform.js" ></script> -->
 </body>
 </html>
