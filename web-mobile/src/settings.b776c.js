@@ -1,0 +1,1 @@
+window._CCSettings={platform:"web-mobile",groupList:["default"],collisionMatrix:[[true]],hasResourcesBundle:true,hasStartSceneBundle:false,remoteBundles:[],subpackages:[],launchScene:"db://assets/scene/denglu.fire",orientation:"portrait",jsList:["assets/script/data/protobuf/protobuf.67b96.js"],bundleVers:{resources:"96926",internal:"f1413",main:"6fc2b"}};
