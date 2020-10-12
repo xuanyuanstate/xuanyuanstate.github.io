@@ -48,9 +48,9 @@
     </div>
   </div>
 
-<script src="src/settings.71981.js" charset="utf-8"></script>
+<script src="src/settings.5d695.js" charset="utf-8"></script>
 <script src="vconsole.min.bac6b.js"></script>
-<script src="main.a1ff3.js" charset="utf-8"></script>
+<script src="main.64dda.js" charset="utf-8"></script>
 
 <script type="text/javascript">
 (function () {
@@ -88,12 +88,6 @@
 </script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-  window.fbCheckLoginState = function() {
-    FB.getLoginStatus(function(response) {
-      window.FBStatusFunc(response);
-    });
-  }
-
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '958406731336872',
@@ -102,6 +96,18 @@
       version    : 'v8.0'           
     });
   };
+
+  window.fbCheckLoginState = function() {
+    FB.getLoginStatus(function(response) {
+      window.FBStatusFunc(response);
+    });
+  }
+
+  window.fbLogin = function() {
+    FB.login(function(response) {
+        window.FBLoginFunc(response);
+    }, {scope: 'public_profile,email'});
+  }
 
   window.fbLogout = function() {
     FB.logout(function(response) {
@@ -117,7 +123,122 @@
 
 </script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script>
+  var GoogleAuth;
+  var SCOPE = 'https://www.googleapis.com/auth/drive.metadata.readonly';
+  function handleClientLoad() {
+    console.log("handleClientLoad");
+    gapi.load('client:auth2', initClient);
+  }
+  window.ggAsyncInit = function() {
+    console.log("handleClientLoad");
+    gapi.load('client:auth2', initClient);
+  }
 
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+  function initClient() {
+    console.log("initClient");
+    var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
+    gapi.client.init({
+        'apiKey': 't991lpqOetaquSfl-O-HwBAi',
+        'clientId': '320616085699-e5okcrld64m0m68uuug1oqq1ci6ae7ru.apps.googleusercontent.com',
+        'discoveryDocs': [discoveryUrl],
+        'scope': SCOPE
+    }).then(function () {
+      GoogleAuth = gapi.auth2.getAuthInstance();
+      GoogleAuth.isSignedIn.listen(updateSigninStatus);
+      var user = GoogleAuth.currentUser.get();
+      setSigninStatus();
+      $('#sign-in-or-out-button').click(function() {
+        handleAuthClick();
+      });
+      $('#revoke-access-button').click(function() {
+        revokeAccess();
+      });
+    });
+  }
+
+  function handleAuthClick() {
+    if (GoogleAuth.isSignedIn.get()) {
+      // User is authorized and has clicked "Sign out" button.
+      GoogleAuth.signOut();
+    } else {
+      // User is not signed in. Start Google auth flow.
+      GoogleAuth.signIn();
+    }
+  }
+
+  function revokeAccess() {
+    GoogleAuth.disconnect();
+  }
+
+  function setSigninStatus() {
+    var user = GoogleAuth.currentUser.get();
+    var isAuthorized = user.hasGrantedScopes(SCOPE);
+    if (isAuthorized) {
+      $('#sign-in-or-out-button').html('Sign out');
+      $('#revoke-access-button').css('display', 'inline-block');
+      $('#auth-status').html('You are currently signed in and have granted ' +
+          'access to this app.');
+    } else {
+      $('#sign-in-or-out-button').html('Sign In/Authorize');
+      $('#revoke-access-button').css('display', 'none');
+      $('#auth-status').html('You have not authorized this app or you are ' +
+          'signed out.');
+    }
+  }
+
+  function updateSigninStatus() {
+    setSigninStatus();
+  }
+
+
+  window.ggSignIn = function () {
+    if (!GoogleAuth.isSignedIn.get()) {
+      GoogleAuth.signIn();
+    } 
+  }
+
+  window.ggSignOut = function () {
+    if (GoogleAuth.isSignedIn.get()) {
+      GoogleAuth.signOut();
+    }
+  }
+
+  // function setSigninStatus() {
+  //   var user = GoogleAuth.currentUser.get();
+  //   var isAuthorized = user.hasGrantedScopes(SCOPE);
+  //   console.log("isAuthorized",isAuthorized);
+  //   // if (isAuthorized) {
+  //   //   $('#sign-in-or-out-button').html('Sign out');
+  //   //   $('#revoke-access-button').css('display', 'inline-block');
+  //   //   $('#auth-status').html('You are currently signed in and have granted ' +
+  //   //       'access to this app.');
+  //   // } else {
+  //   //   $('#sign-in-or-out-button').html('Sign In/Authorize');
+  //   //   $('#revoke-access-button').css('display', 'none');
+  //   //   $('#auth-status').html('You have not authorized this app or you are ' +
+  //   //       'signed out.');
+  //   // }
+  // }
+
+  // function updateSigninStatus() {
+  //   console.log("updateSigninStatus",updateSigninStatus);
+  //   setSigninStatus();
+  // }
+</script>
+
+<button id="sign-in-or-out-button"
+        style="margin-left: 25px">Sign In/Authorize</button>
+<button id="revoke-access-button"
+        style="display: none; margin-left: 25px">Revoke access</button>
+
+<div id="auth-status" style="display: inline; padding-left: 25px"></div><hr>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){handleClientLoad()};"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
+<script async defer src="https://apis.google.com/js/platform.js" ></script>
 </body>
 </html>
