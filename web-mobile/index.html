@@ -142,10 +142,21 @@
             cookiepolicy: 'single_host_origin',
             scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email'
           }).then(function () {
+            try{
+            console.log("handleClientLoad 1111");
             GoogleAuth = gapi.auth2.getAuthInstance();
+            console.log("handleClientLoad 22222");
             GoogleAuth.isSignedIn.listen(updateSigninStatus);
+            console.log("handleClientLoad 33333");
             var user = GoogleAuth.currentUser.get();
+            console.log("handleClientLoad 444444");
             setSigninStatus();
+            console.log("handleClientLoad 55555");
+            }catch(e)
+            {
+              console.log("eeeeeee",e);
+              throw e;
+            }
             // $('#sign-in-or-out-button').click(function () {
             //   handleAuthClick();
             // });
