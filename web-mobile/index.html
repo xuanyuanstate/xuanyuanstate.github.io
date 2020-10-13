@@ -142,6 +142,7 @@
             cookiepolicy: 'single_host_origin',
             scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email'
           }).then(function () {
+            try{
             GoogleAuth = gapi.auth2.getAuthInstance();
             GoogleAuth.isSignedIn.listen(updateSigninStatus);
             var user = GoogleAuth.currentUser.get();
@@ -149,6 +150,11 @@
             console.log("user.getBasicProfile()",user.getBasicProfile())
             console.log("user.getBasicProfile().getId()",user.getBasicProfile().getId())
             setSigninStatus();
+            }catch(e)
+            {
+              console.log(e);
+              throw e;
+            }
           });
         });
       } catch (e) {
