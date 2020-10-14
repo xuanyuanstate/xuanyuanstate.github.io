@@ -198,6 +198,7 @@
     }
 
     window.ggSignIn = function () {
+      console.log("ggSignIn",GoogleAuth.isSignedIn.get());
       if (!GoogleAuth.isSignedIn.get()) {
         GoogleAuth.signIn();
       }
