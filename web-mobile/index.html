@@ -243,6 +243,7 @@
       var user = GoogleAuth.currentUser.get();
       var profile = user.getBasicProfile();
       var name =  profile.getName();
+      console.log("222 name: " + name);
       window.GGUserInfoFunc(name);
     }
 
