@@ -185,26 +185,21 @@
             cookiepolicy: 'single_host_origin',
             scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email'
           }).then(function () {
-            try {
-              GoogleAuth = gapi.auth2.getAuthInstance();
-              GoogleAuth.isSignedIn.listen(updateSigninStatus);
-              var user = GoogleAuth.currentUser.get();
-              var profile = user.getBasicProfile();
-              console.log("ID: " + profile.getId());
-              console.log('Full Name: ' + profile.getName());
-              console.log('Given Name: ' + profile.getGivenName());
-              console.log('Family Name: ' + profile.getFamilyName());
-              console.log("Image URL: " + profile.getImageUrl());
-              console.log("Email: " + profile.getEmail());
+            GoogleAuth = gapi.auth2.getAuthInstance();
+            GoogleAuth.isSignedIn.listen(updateSigninStatus);
+            var user = GoogleAuth.currentUser.get();
+            var profile = user.getBasicProfile();
+            console.log("ID: " + profile.getId());
+            console.log('Full Name: ' + profile.getName());
+            console.log('Given Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log("Image URL: " + profile.getImageUrl());
+            console.log("Email: " + profile.getEmail());
 
-              // The ID token you need to pass to your backend:
-              var id_token = user.getAuthResponse().id_token;
-              console.log("ID Token: " + id_token);
-              setSigninStatus();
-            } catch (e) {
-              console.log(e);
-              throw e;
-            }
+            // The ID token you need to pass to your backend:
+            var id_token = user.getAuthResponse().id_token;
+            console.log("ID Token: " + id_token);
+            setSigninStatus();
           });
         });
       } catch (e) {
