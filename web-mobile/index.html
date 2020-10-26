@@ -189,6 +189,7 @@
           }).then(function () {
             GoogleAuth = gapi.auth2.getAuthInstance();
             GoogleAuth.isSignedIn.listen(updateSigninStatus);
+            console.log("GoogleAuth: " + GoogleAuth);
             // setSigninStatus();
           });
         });
@@ -199,52 +200,65 @@
     }
 
     window.ggCheckLoginState = function () {
-      if (GoogleAuth.isSignedIn.get()) {
-        var user = GoogleAuth.currentUser.get();
-        var profile = user.getBasicProfile();
-        // console.log("ID: " + profile.getId());
-        // console.log('Full Name: ' + profile.getName());
-        // console.log('Given Name: ' + profile.getGivenName());
-        // console.log('Family Name: ' + profile.getFamilyName());
-        // console.log("Image URL: " + profile.getImageUrl());
-        // console.log("Email: " + profile.getEmail());
+      try {
+        if (GoogleAuth.isSignedIn.get()) {
+          var user = GoogleAuth.currentUser.get();
+          var profile = user.getBasicProfile();
+          // console.log("ID: " + profile.getId());
+          // console.log('Full Name: ' + profile.getName());
+          // console.log('Given Name: ' + profile.getGivenName());
+          // console.log('Family Name: ' + profile.getFamilyName());
+          // console.log("Image URL: " + profile.getImageUrl());
+          // console.log("Email: " + profile.getEmail());
 
-        var name =  profile.getName();
-        var id_token = user.getAuthResponse().id_token;
-        // console.log("111ID Token: " + id_token);
-        window.GGStatusFunc(id_token,name);
-      }
-      else
-      {
-        window.GGStatusFunc("");
+          var name = profile.getName();
+          var id_token = user.getAuthResponse().id_token;
+          // console.log("111ID Token: " + id_token);
+          window.GGStatusFunc(id_token, name);
+        }
+        else {
+          window.GGStatusFunc("");
+        }
+      } catch (e) {
+        console.log(e);
+        throw e;
       }
     }
 
     window.ggSignIn = function () {
       // console.log("ggSignIn", GoogleAuth.isSignedIn.get());
-      if (!GoogleAuth.isSignedIn.get()) {
-        GoogleAuth.signIn();
-      }
-      else
-      {
-        
-        var user = GoogleAuth.currentUser.get();
-        var id_token = user.getAuthResponse().id_token;
-        // console.log("222ID Token: " + id_token);
-        window.GGStatusFunc(id_token);
+      try {
+        if (!GoogleAuth.isSignedIn.get()) {
+          GoogleAuth.signIn();
+        }
+        else {
+
+          var user = GoogleAuth.currentUser.get();
+          var id_token = user.getAuthResponse().id_token;
+          // console.log("222ID Token: " + id_token);
+          window.GGStatusFunc(id_token);
+        }
+      } catch (e) {
+        console.log(e);
+        throw e;
       }
     }
 
     window.ggSignOut = function () {
-      if (GoogleAuth.isSignedIn.get()) {
-        GoogleAuth.signOut();
+      try {
+        if (GoogleAuth.isSignedIn.get()) {
+          GoogleAuth.signOut();
+        }
+      } catch (e) {
+        console.log(e);
+        throw e;
       }
     }
 
     window.ggUserInfo = function () {
       var user = GoogleAuth.currentUser.get();
       var profile = user.getBasicProfile();
-      var name =  profile.getName();
+      var name = profile.getName();
       // console.log("222 name: " + name);
       window.GGUserInfoFunc(name);
     }
@@ -279,7 +293,7 @@
       console.log("updateSigninStatus", updateSigninStatus);
       setSigninStatus();
     }
-    
+
 
     window.ggShare = function (contentId) {
       u = document.getElementsByClassName("share_url")[0].content;
