@@ -35,7 +35,7 @@
   <!--<meta name="browsermode" content="application">-->
   <meta name="x5-page-mode" content="app">
 
-  <meta property="og:url" class="share_url" content="https://wormhole.cool/?shareid=" />
+  <meta property="og:url" class="share_url" content="https://wormhole.cool:442/?shareid=" />
   <!-- <meta property="og:url" class="share_url" content="https://xuanyuanstate.github.io/web-mobile/?shareid=" /> -->
 
   <meta property="og:type" content="article" />
@@ -61,9 +61,9 @@
     </div>
   </div>
 
-  <script src="src/settings.e4b52.js" charset="utf-8"></script>
+  <script src="src/settings.1a236.js" charset="utf-8"></script>
   <script src="vconsole.min.bac6b.js"></script>
-  <script src="main.9b86f.js" charset="utf-8"></script>
+  <script src="main.40409.js" charset="utf-8"></script>
 
   <script type="text/javascript">
     (function () {
@@ -295,11 +295,18 @@
     }
 
 
-    window.ggShare = function (contentId) {
+    // window.ggShare = function (contentId) {
+    //   u = document.getElementsByClassName("share_url")[0].content;
+    //   t = document.getElementsByClassName("share_title")[0].content;
+    //   // window.open("https://plus.google.com/share?url=" + encodeURIComponent(u), "sharer", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");
+    //   location = "whatsapp://send?text=" + encodeURIComponent(t) + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
+    // }
+  </script>
+  <script>
+    window.whatsappShare = function (guid) {
       u = document.getElementsByClassName("share_url")[0].content;
       t = document.getElementsByClassName("share_title")[0].content;
-      // window.open("https://plus.google.com/share?url=" + encodeURIComponent(u), "sharer", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");
-      location = "whatsapp://send?text=" + encodeURIComponent(t) + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
+      location = "whatsapp://send?text=" + encodeURIComponent(t) + guid + "&t=" + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
     }
   </script>
 </body>
