@@ -49,6 +49,9 @@
   <meta name="whatsapp:url" class="share_url" content="https://wormhole.cool:442/?shareid=">
   <meta name="whatsapp:title" class="share_title" content="Wormhole Games">
 
+  <a href="sms:10086?body=https://wormhole.cool:442/?shareid=">156</a>
+  <a href="sms:10086&body=https://wormhole.cool:442/?shareid=">1560</a>
+
   <!--<link rel="apple-touch-icon" href=".png" />-->
   <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
 
@@ -64,9 +67,9 @@
     </div>
   </div>
 
-  <script src="src/settings.4706f.js" charset="utf-8"></script>
+  <script src="src/settings.8659c.js" charset="utf-8"></script>
   <script src="vconsole.min.bac6b.js"></script>
-  <script src="main.a2dd3.js" charset="utf-8"></script>
+  <script src="main.57f7c.js" charset="utf-8"></script>
 
   <script type="text/javascript">
     (function () {
@@ -310,6 +313,23 @@
       u = document.getElementsByClassName("share_url")[0].content;
       t = document.getElementsByClassName("share_title")[0].content;
       location = "whatsapp://send?text=" + encodeURIComponent(t) + guid + "&t=" + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
+    }
+  </script>
+  <script>
+    window.messageShare = function (guid) {
+      var u = navigator.userAgent;
+      var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+      //android终端
+      var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+      var name = document.getElementById('name').value;
+      var tel = document.getElementById('tel').value;
+      if (isiOS) {
+        document.getElementsByTagName('a')[0].href = "sms:" + tel + "&body=" + name + guid;
+      }
+      else {
+        document.getElementsByTagName('a')[0].href = "sms:" + tel + "?body=" + name + guid;
+      }
+
     }
   </script>
 </body>
