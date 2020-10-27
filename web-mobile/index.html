@@ -307,9 +307,15 @@
   <script>
     window.whatsappShare = function (guid) {
       console.log("======whatsappShare",guid)
-      u = document.getElementsByClassName("share_url")[0].content;
-      t = document.getElementsByClassName("share_title")[0].content;
-      location = "whatsapp://send?text=" + encodeURIComponent(t) + guid + "&t=" + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
+      // u = document.getElementsByClassName("share_url")[0].content;
+      // t = document.getElementsByClassName("share_title")[0].content;
+      // location = "whatsapp://send?text=" + encodeURIComponent(t) + guid + "&t=" + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
+      var content="";
+            content+="Aap hamare Facebook page ko like karein jisse application k bahar hone wale events me bhi Participate kar k kama saktein hain paise.";
+            content+="\n"+"https://www.facebook.com/LopscoopOfficial/"+"\n";
+
+            //主要实现是下面这行代码,来完成页面跳转到WhatsApp,并分享内容
+      location="whatsapp://send?text="+ encodeURIComponent(content);
     }
   </script>
   <script>
