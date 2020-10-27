@@ -39,11 +39,8 @@
   <!-- <meta property="og:url" class="share_url" content="https://xuanyuanstate.github.io/web-mobile/?shareid=" /> -->
 
   <meta property="og:type" content="article" />
-
   <meta property="og:title" class="share_title" content="Wormhole Games" />
-
   <meta property="og:description" content="This Good Game" />
-
   <meta property="og:image" content="https://ak.picdn.net/assets/cms/sstk-favicon-72.png" />
 
   <meta name="whatsapp:url" class="share_url" content="https://wormhole.cool:442/?shareid=">
@@ -67,9 +64,9 @@
     </div>
   </div>
 
-  <script src="src/settings.fc12e.js" charset="utf-8"></script>
+  <script src="src/settings.b1cfb.js" charset="utf-8"></script>
   <script src="vconsole.min.bac6b.js"></script>
-  <script src="main.44b70.js" charset="utf-8"></script>
+  <script src="main.1e7fa.js" charset="utf-8"></script>
 
   <script type="text/javascript">
     (function () {
@@ -310,6 +307,7 @@
   </script>
   <script>
     window.whatsappShare = function (guid) {
+      console.log("======whatsappShare",guid)
       u = document.getElementsByClassName("share_url")[0].content;
       t = document.getElementsByClassName("share_title")[0].content;
       location = "whatsapp://send?text=" + encodeURIComponent(t) + guid + "&t=" + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
@@ -317,6 +315,7 @@
   </script>
   <script>
     window.messageShare = function (guid) {
+      console.log("======messageShare",guid)
       var u = navigator.userAgent;
       var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
       //android终端
