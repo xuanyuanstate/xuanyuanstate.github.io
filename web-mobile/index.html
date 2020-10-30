@@ -341,7 +341,7 @@
   </script>
   <script>
     window.whatsappShare = function (content) {
-      console.log("======whatsappShare", content)
+      console.log("222======whatsappShare", content)
       u = document.getElementsByClassName("share_url")[0].content;
       t = document.getElementsByClassName("share_title")[0].content;
       location = "whatsapp://send?text=" + encodeURIComponent(t) + content + "&t=" + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
@@ -355,7 +355,7 @@
   </script>
   <script>
     window.messageShare = function (content) {
-      console.log("111======messageShare", content)
+      console.log("222======messageShare", content)
       // var u = navigator.userAgent;
       // var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
       // //android终端
@@ -368,7 +368,7 @@
       // else {
       //   document.getElementsByTagName('a')[0].href = "sms://" + 1500 + "?body=https://wormhole.cool:442/?shareid=" + content;
       // }
-      window.location.href = 'sms:10086?body='+content;
+      window.location.href = 'sms:?body='+content;
     }
   </script>
 </body>
