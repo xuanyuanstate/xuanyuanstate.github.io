@@ -46,6 +46,7 @@
   <meta name="whatsapp:url" class="share_url" content="">
   <meta name="whatsapp:title" class="share_title" content="Wormhole Games">
 
+  <a href="javascript:whatsApp();" class="xq-whatsapp" data-action="share/whatsapp/share"></a>
   <a href="sms://10086?body=https://wormhole.cool:442/?shareid=">156</a>
   <a href="sms://10086&body=https://wormhole.cool:442/?shareid=">1560</a>
 
@@ -64,9 +65,9 @@
     </div>
   </div>
 
-  <script src="src/settings.bedae.js" charset="utf-8"></script>
+  <script src="src/settings.e3af6.js" charset="utf-8"></script>
   <script src="vconsole.min.bac6b.js"></script>
-  <script src="main.a825a.js" charset="utf-8"></script>
+  <script src="main.615c0.js" charset="utf-8"></script>
 
   <script type="text/javascript">
     (function () {
@@ -339,15 +340,15 @@
   <script>
     window.whatsappShare = function (content) {
       console.log("======whatsappShare", content)
-      // u = document.getElementsByClassName("share_url")[0].content;
-      // t = document.getElementsByClassName("share_title")[0].content;
-      // location = "whatsapp://send?text=" + encodeURIComponent(t) + guid + "&t=" + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
-      var content = "";
-      content += "Aap hamare Facebook page ko like karein jisse application k bahar hone wale events me bhi Participate kar k kama saktein hain paise.";
-      content += "\n" + "https://www.facebook.com/LopscoopOfficial/" + "\n";
+      u = document.getElementsByClassName("share_url")[0].content;
+      t = document.getElementsByClassName("share_title")[0].content;
+      location = "whatsapp://send?text=" + encodeURIComponent(t) + guid + "&t=" + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
+      // var content = "";
+      // content += "Aap hamare Facebook page ko like karein jisse application k bahar hone wale events me bhi Participate kar k kama saktein hain paise.";
+      // content += "\n" + "https://www.facebook.com/LopscoopOfficial/" + "\n";
 
-      //主要实现是下面这行代码,来完成页面跳转到WhatsApp,并分享内容
-      location = "whatsapp://send?text=" + encodeURIComponent(content);
+      // //主要实现是下面这行代码,来完成页面跳转到WhatsApp,并分享内容
+      // location = "whatsapp://send?text=" + encodeURIComponent(content);
     }
   </script>
   <script>
