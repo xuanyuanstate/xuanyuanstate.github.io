@@ -51,7 +51,7 @@
   <!--<link rel="apple-touch-icon" href=".png" />-->
   <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
 
-  <link rel="stylesheet" type="text/css" href="style-mobile.b0780.css" />
+  <link rel="stylesheet" type="text/css" href="style-mobile.a08d9.css" />
   <link rel="icon" href="favicon.8de18.ico" />
 </head>
 
@@ -63,9 +63,9 @@
     </div>
   </div>
 
-  <script src="src/settings.094ef.js" charset="utf-8"></script>
+  <script src="src/settings.db2ff.js" charset="utf-8"></script>
   <script src="vconsole.min.bac6b.js"></script>
-  <script src="main.37262.js" charset="utf-8"></script>
+  <script src="main.69294.js" charset="utf-8"></script>
 
   <script type="text/javascript">
     (function () {
@@ -91,7 +91,7 @@
         document.body.appendChild(domScript);
       }
 
-      loadScript(debug ? 'cocos2d-js.js' : 'cocos2d-js-min.29bda.js', function () {
+      loadScript(debug ? 'cocos2d-js.js' : 'cocos2d-js-min.48cdd.js', function () {
         if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
           loadScript(debug ? 'physics.js' : 'physics-min.js', window.boot);
         }
@@ -134,6 +134,9 @@
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
   <script>
     window.fbAsyncInit = function () {
+      if (FB === null) {
+        return;
+      }
       FB.init({
         appId: '958406731336872',
         cookie: true,
@@ -143,24 +146,36 @@
     };
 
     window.fbCheckLoginState = function () {
+      if (FB === null) {
+        return;
+      }
       FB.getLoginStatus(function (response) {
         window.FBStatusFunc(response);
       });
     }
 
     window.fbLogin = function () {
+      if (FB === null) {
+        return;
+      }
       FB.login(function (response) {
         window.FBLoginFunc(response);
       }, { scope: 'public_profile,email' });
     }
 
     window.fbLogout = function () {
+      if (FB === null) {
+        return;
+      }
       FB.logout(function (response) {
         window.FBLogoutFunc(response);
       });
     };
 
     window.fbUserInfo = function () {
+      if (FB === null) {
+        return;
+      }
       FB.api('/me', function (response) {
         window.FBUserInfoFunc(response);
       });
@@ -183,6 +198,9 @@
       console.log("handleClientLoad");
       // gapi.load('client:auth2', initClient);
       try {
+        if (gapi === null) {
+          return;
+        }
         gapi.load('auth2', function () {
           auth2 = gapi.auth2.init({
             client_id: '320616085699-e5okcrld64m0m68uuug1oqq1ci6ae7ru.apps.googleusercontent.com',
@@ -203,6 +221,9 @@
 
     window.ggCheckLoginState = function () {
       try {
+        if (GoogleAuth === null) {
+          return;
+        }
         if (GoogleAuth.isSignedIn.get()) {
           var user = GoogleAuth.currentUser.get();
           var profile = user.getBasicProfile();
@@ -230,6 +251,9 @@
     window.ggSignIn = function () {
       // console.log("ggSignIn", GoogleAuth.isSignedIn.get());
       try {
+        if (GoogleAuth === null) {
+          return;
+        }
         if (!GoogleAuth.isSignedIn.get()) {
           GoogleAuth.signIn();
         }
@@ -248,6 +272,9 @@
 
     window.ggSignOut = function () {
       try {
+        if (GoogleAuth === null) {
+          return;
+        }
         if (GoogleAuth.isSignedIn.get()) {
           GoogleAuth.signOut();
         }
@@ -258,6 +285,9 @@
     }
 
     window.ggUserInfo = function () {
+      if (GoogleAuth === null) {
+        return;
+      }
       var user = GoogleAuth.currentUser.get();
       var profile = user.getBasicProfile();
       var name = profile.getName();
@@ -266,6 +296,9 @@
     }
 
     function setSigninStatus() {
+      if (GoogleAuth === null) {
+        return;
+      }
       if (GoogleAuth.isSignedIn.get()) {
         var user = GoogleAuth.currentUser.get();
         var profile = user.getBasicProfile();
@@ -306,21 +339,21 @@
   </script>
   <script>
     window.whatsappShare = function (guid) {
-      console.log("======whatsappShare",guid)
+      console.log("======whatsappShare", guid)
       // u = document.getElementsByClassName("share_url")[0].content;
       // t = document.getElementsByClassName("share_title")[0].content;
       // location = "whatsapp://send?text=" + encodeURIComponent(t) + guid + "&t=" + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
-      var content="";
-            content+="Aap hamare Facebook page ko like karein jisse application k bahar hone wale events me bhi Participate kar k kama saktein hain paise.";
-            content+="\n"+"https://www.facebook.com/LopscoopOfficial/"+"\n";
+      var content = "";
+      content += "Aap hamare Facebook page ko like karein jisse application k bahar hone wale events me bhi Participate kar k kama saktein hain paise.";
+      content += "\n" + "https://www.facebook.com/LopscoopOfficial/" + "\n";
 
-            //主要实现是下面这行代码,来完成页面跳转到WhatsApp,并分享内容
-      location="whatsapp://send?text="+ encodeURIComponent(content);
+      //主要实现是下面这行代码,来完成页面跳转到WhatsApp,并分享内容
+      location = "whatsapp://send?text=" + encodeURIComponent(content);
     }
   </script>
   <script>
     window.messageShare = function (guid) {
-      console.log("======messageShare",guid)
+      console.log("======messageShare", guid)
       var u = navigator.userAgent;
       var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
       //android终端
