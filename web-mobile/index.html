@@ -46,9 +46,11 @@
   <meta name="whatsapp:url" class="share_url" content="">
   <meta name="whatsapp:title" class="share_title" content="Wormhole Games">
 
+  <meta name="format-detection" content="telephone=yes"/>
+
   <!-- <a href="javascript:whatsApp();" class="xq-whatsapp" data-action="share/whatsapp/share"></a> -->
-  <a href="sms://10086?body=https://wormhole.cool:442/?shareid=">156</a>
-  <a href="sms://10086&body=https://wormhole.cool:442/?shareid=">1560</a>
+  <!-- <a href="sms://10086?body=https://wormhole.cool:442/?shareid=">156</a>
+  <a href="sms://10086&body=https://wormhole.cool:442/?shareid=">1560</a> -->
 
   <!--<link rel="apple-touch-icon" href=".png" />-->
   <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
@@ -65,9 +67,9 @@
     </div>
   </div>
 
-  <script src="src/settings.6ff66.js" charset="utf-8"></script>
+  <script src="src/settings.a105a.js" charset="utf-8"></script>
   <script src="vconsole.min.bac6b.js"></script>
-  <script src="main.78ec4.js" charset="utf-8"></script>
+  <script src="main.5a2fb.js" charset="utf-8"></script>
 
   <script type="text/javascript">
     (function () {
@@ -353,20 +355,20 @@
   </script>
   <script>
     window.messageShare = function (content) {
-      console.log("======messageShare", content)
-      var u = navigator.userAgent;
-      var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
-      //android终端
-      var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-      // var name = document.getElementById('name').value;
-      // var tel = document.getElementById('tel').value;
-      if (isiOS) {
-        document.getElementsByTagName('a')[0].href = "sms://" + 1500 + "&body=https://wormhole.cool:442/?shareid=" + content;
-      }
-      else {
-        document.getElementsByTagName('a')[0].href = "sms://" + 1500 + "?body=https://wormhole.cool:442/?shareid=" + content;
-      }
-
+      console.log("111======messageShare", content)
+      // var u = navigator.userAgent;
+      // var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+      // //android终端
+      // var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+      // // var name = document.getElementById('name').value;
+      // // var tel = document.getElementById('tel').value;
+      // if (isiOS) {
+      //   document.getElementsByTagName('a')[0].href = "sms://" + 1500 + "&body=https://wormhole.cool:442/?shareid=" + content;
+      // }
+      // else {
+      //   document.getElementsByTagName('a')[0].href = "sms://" + 1500 + "?body=https://wormhole.cool:442/?shareid=" + content;
+      // }
+      window.location.href = 'sms:10086?body='+content;
     }
   </script>
 </body>
