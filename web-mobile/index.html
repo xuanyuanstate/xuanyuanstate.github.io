@@ -35,7 +35,8 @@
   <!--<meta name="browsermode" content="application">-->
   <meta name="x5-page-mode" content="app">
 
-  <meta property="og:url" class="share_url" content="https://wormhole.cool:442/?shareid=" />
+  <!-- <meta property="og:url" class="share_url" content="https://wormhole.cool:442/?shareid=" /> -->
+  <meta property="og:url" class="share_url" content="" />
   <!-- <meta property="og:url" class="share_url" content="https://xuanyuanstate.github.io/web-mobile/?shareid=" /> -->
   <meta property="og:type" content="article" />
   <meta property="og:title" class="share_title" content="Wormhole Games" />
@@ -45,8 +46,8 @@
   <meta name="whatsapp:url" class="share_url" content="https://wormhole.cool:442/?shareid=">
   <meta name="whatsapp:title" class="share_title" content="Wormhole Games">
 
-  <a href="sms:10086?body=https://wormhole.cool:442/?shareid=">156</a>
-  <a href="sms:10086&body=https://wormhole.cool:442/?shareid=">1560</a>
+  <a href="sms://10086?body=https://wormhole.cool:442/?shareid=">156</a>
+  <a href="sms://10086&body=https://wormhole.cool:442/?shareid=">1560</a>
 
   <!--<link rel="apple-touch-icon" href=".png" />-->
   <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
@@ -63,9 +64,9 @@
     </div>
   </div>
 
-  <script src="src/settings.db2ff.js" charset="utf-8"></script>
+  <script src="src/settings.e5920.js" charset="utf-8"></script>
   <script src="vconsole.min.bac6b.js"></script>
-  <script src="main.69294.js" charset="utf-8"></script>
+  <script src="main.88a73.js" charset="utf-8"></script>
 
   <script type="text/javascript">
     (function () {
@@ -134,7 +135,7 @@
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
   <script>
     window.fbAsyncInit = function () {
-      if (FB === null) {
+      if (FB == undefined || FB == null ||  FB == "" || FB == 'undefined') {
         return;
       }
       FB.init({
@@ -146,7 +147,7 @@
     };
 
     window.fbCheckLoginState = function () {
-      if (FB === null) {
+      if (FB == undefined || FB == null ||  FB == "" || FB == 'undefined') {
         return;
       }
       FB.getLoginStatus(function (response) {
@@ -155,7 +156,7 @@
     }
 
     window.fbLogin = function () {
-      if (FB === null) {
+      if (FB === null || FB == undefined || FB === "" || FB === 'undefined') {
         return;
       }
       FB.login(function (response) {
@@ -164,7 +165,7 @@
     }
 
     window.fbLogout = function () {
-      if (FB === null) {
+      if (FB === null || FB == undefined || FB === "" || FB === 'undefined') {
         return;
       }
       FB.logout(function (response) {
@@ -173,7 +174,7 @@
     };
 
     window.fbUserInfo = function () {
-      if (FB === null) {
+      if (FB === null || FB == undefined || FB === "" || FB === 'undefined') {
         return;
       }
       FB.api('/me', function (response) {
@@ -198,7 +199,7 @@
       console.log("handleClientLoad");
       // gapi.load('client:auth2', initClient);
       try {
-        if (gapi === null) {
+        if (gapi === null || gapi == undefined || gapi === "" || gapi === 'undefined') {
           return;
         }
         gapi.load('auth2', function () {
@@ -361,10 +362,10 @@
       // var name = document.getElementById('name').value;
       // var tel = document.getElementById('tel').value;
       if (isiOS) {
-        document.getElementsByTagName('a')[0].href = "sms:" + 1500 + "&body=https://wormhole.cool:442/?shareid=" + guid;
+        document.getElementsByTagName('a')[0].href = "sms://" + 1500 + "&body=https://wormhole.cool:442/?shareid=" + guid;
       }
       else {
-        document.getElementsByTagName('a')[0].href = "sms:" + 1500 + "?body=https://wormhole.cool:442/?shareid=" + guid;
+        document.getElementsByTagName('a')[0].href = "sms://" + 1500 + "?body=https://wormhole.cool:442/?shareid=" + guid;
       }
 
     }
