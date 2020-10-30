@@ -43,7 +43,7 @@
   <meta property="og:description" content="This Good Game" />
   <meta property="og:image" content="https://ak.picdn.net/assets/cms/sstk-favicon-72.png" />
 
-  <meta name="whatsapp:url" class="share_url" content="https://wormhole.cool:442/?shareid=">
+  <meta name="whatsapp:url" class="share_url" content="">
   <meta name="whatsapp:title" class="share_title" content="Wormhole Games">
 
   <a href="sms://10086?body=https://wormhole.cool:442/?shareid=">156</a>
@@ -64,9 +64,9 @@
     </div>
   </div>
 
-  <script src="src/settings.19f78.js" charset="utf-8"></script>
+  <script src="src/settings.a38fa.js" charset="utf-8"></script>
   <script src="vconsole.min.bac6b.js"></script>
-  <script src="main.6d930.js" charset="utf-8"></script>
+  <script src="main.266b4.js" charset="utf-8"></script>
 
   <script type="text/javascript">
     (function () {
@@ -182,12 +182,10 @@
       });
     }
 
-    window.fbShare = function (guid) {
+    window.fbShare = function (content) {
       u = document.getElementsByClassName("share_url")[0].content;
       t = document.getElementsByClassName("share_title")[0].content;
-      console.log('==========111')
-      // console.log("http://www.facebook.com/sharer.php?u=" + encodeURIComponent(u) + "&t=" + encodeURIComponent(t))
-      window.open("http://www.facebook.com/sharer.php?u=" + encodeURIComponent(u) + guid + "&t=" + encodeURIComponent(t), "sharer", "toolbar=0,status=0,width=626,height=436");
+      window.open("http://www.facebook.com/sharer.php?u=" + encodeURIComponent(u) + content + "&t=" + encodeURIComponent(t), "sharer", "toolbar=0,status=0,width=626,height=436");
     }
   </script>
   <script async defer crossorigin="anonymous" src="https://apis.google.com/js/api.js"></script>
@@ -339,8 +337,8 @@
     // }
   </script>
   <script>
-    window.whatsappShare = function (guid) {
-      console.log("======whatsappShare", guid)
+    window.whatsappShare = function (content) {
+      console.log("======whatsappShare", content)
       // u = document.getElementsByClassName("share_url")[0].content;
       // t = document.getElementsByClassName("share_title")[0].content;
       // location = "whatsapp://send?text=" + encodeURIComponent(t) + guid + "&t=" + encodeURIComponent("\n\n" + u) + "&via=lopscoop";
@@ -353,8 +351,8 @@
     }
   </script>
   <script>
-    window.messageShare = function (guid) {
-      console.log("======messageShare", guid)
+    window.messageShare = function (content) {
+      console.log("======messageShare", content)
       var u = navigator.userAgent;
       var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
       //android终端
@@ -362,10 +360,10 @@
       // var name = document.getElementById('name').value;
       // var tel = document.getElementById('tel').value;
       if (isiOS) {
-        document.getElementsByTagName('a')[0].href = "sms://" + 1500 + "&body=https://wormhole.cool:442/?shareid=" + guid;
+        document.getElementsByTagName('a')[0].href = "sms://" + 1500 + "&body=https://wormhole.cool:442/?shareid=" + content;
       }
       else {
-        document.getElementsByTagName('a')[0].href = "sms://" + 1500 + "?body=https://wormhole.cool:442/?shareid=" + guid;
+        document.getElementsByTagName('a')[0].href = "sms://" + 1500 + "?body=https://wormhole.cool:442/?shareid=" + content;
       }
 
     }
